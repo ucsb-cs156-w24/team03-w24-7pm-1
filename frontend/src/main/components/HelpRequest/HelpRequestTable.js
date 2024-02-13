@@ -64,8 +64,14 @@ export default function helpRequestTable({
         columns.push(ButtonColumn("Delete", "danger", deleteCallback, testIdPrefix));
     } 
 
+
+    const updatedHelpRequests = helpRequests.map(obj => ({
+        ...obj,
+        "solved": String(obj["solved"])
+    }));
+
     return <OurTable
-        data={ helpRequests}
+        data={updatedHelpRequests}
         columns={columns}
         testid={testIdPrefix}
     />;

@@ -28,9 +28,8 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
     return (
 
         <Form onSubmit={handleSubmit(submitAction)}>
-
-            <Row>
-            {initialContents && (
+<Row>
+                {initialContents && (
                     <Col>
                         <Form.Group className="mb-3" >
                             <Form.Label htmlFor="id">Id</Form.Label>
@@ -45,6 +44,9 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
                         </Form.Group>
                     </Col>
                 )}
+</Row>
+            <Row>
+
                 <Col>
                     <Form.Group className="mb-3" >
                         <Form.Label htmlFor="requesterEmail">Requester Email</Form.Label>
