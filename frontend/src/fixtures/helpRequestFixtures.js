@@ -1,9 +1,9 @@
 const helpRequestFixtures = {
     oneDate: 
         {
-            "id": 0,
+            "id": 1,
             "requesterEmail": "abc@ucsb.edu",
-            "teamId": "string0",
+            "teamId": "w24-7pm-1",
             "tableOrBreakoutRoom": "room0",
             "requestTime": "2024-02-12T00:16",
             "explanation": "help",
@@ -13,7 +13,7 @@ const helpRequestFixtures = {
         {
             "id": 1,
             "requesterEmail": "local@ucsb.edu",
-            "teamId": "string1",
+            "teamId": "w24-7pm-1",
             "tableOrBreakoutRoom": "room1",
             "requestTime": "2024-02-13T00:16",
             "explanation": "help me",
@@ -22,7 +22,7 @@ const helpRequestFixtures = {
           {
             "id": 2,
             "requesterEmail": "host@ucsb.edu",
-            "teamId": "string2",
+            "teamId": "w24-7pm-1",
             "tableOrBreakoutRoom": "room2",
             "requestTime": "2024-02-14T00:16",
             "explanation": "help my team",
@@ -31,7 +31,7 @@ const helpRequestFixtures = {
           {
             "id": 3,
             "requesterEmail": "ucsb@ucsb.edu",
-            "teamId": "string3",
+            "teamId": "w24-7pm-1",
             "tableOrBreakoutRoom": "room3",
             "requestTime": "2024-02-15T00:16",
             "explanation": "errrrror",
