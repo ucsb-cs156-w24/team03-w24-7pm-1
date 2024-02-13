@@ -1,3 +1,4 @@
+import React from 'react'
 import { useBackend } from 'main/utils/useBackend';
 
 import HelpRequestTable from 'main/components/HelpRequest/HelpRequestTable';
