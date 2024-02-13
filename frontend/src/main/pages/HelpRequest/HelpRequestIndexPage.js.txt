@@ -1,10 +1,10 @@
-/*import React from 'react'
+import React from 'react'
 import { useBackend } from 'main/utils/useBackend';
 
-import HelpRequestTable from 'main/components/HelpRequest/HelpRequestTable';
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
-import { hasRole, useCurrentUser } from 'main/utils/currentUser';
+import HelpRequestTable from 'main/components/HelpRequest/HelpRequestTable';
 import { Button } from 'react-bootstrap';
+import { useCurrentUser , hasRole} from 'main/utils/currentUser';
 
 export default function HelpRequestIndexPage() {
 
@@ -18,7 +18,7 @@ export default function HelpRequestIndexPage() {
                 href="/helprequest/create"
                 style={{ float: "right" }}
             >
-                Create HelpRequest 
+                Create Help Requests
             </Button>
         )
     } 
@@ -36,10 +36,9 @@ export default function HelpRequestIndexPage() {
     <BasicLayout>
       <div className="pt-2">
         {createButton()}
-        <h1>HelpRequest</h1>
+        <h1>Help Requests</h1>
         <HelpRequestTable helpRequests={helpRequests} currentUser={currentUser} />
       </div>
     </BasicLayout>
   )
 }
-*/
