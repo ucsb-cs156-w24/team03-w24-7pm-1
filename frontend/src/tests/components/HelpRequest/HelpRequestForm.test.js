@@ -11,7 +11,6 @@ jest.mock('react-router-dom', () => ({
 }));
 
 describe("HelpRequestForm tests", () => {
-
     test("renders correctly", async () => {
         render(
             <Router >
