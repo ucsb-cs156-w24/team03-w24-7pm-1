@@ -1,12 +1,15 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import HelpRequestCreatePage from "main/pages/HelpRequest/HelpRequestCreatePage";
+import { fireEvent, render, waitFor, screen } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
+import HelpRequestIndexPage from "main/pages/HelpRequest/HelpRequestIndexPage";
 
-import axios from "axios";
-import AxiosMockAdapter from "axios-mock-adapter";
+
 import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
 import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
+import { helpRequestFixtures } from "fixtures/helpRequestFixtures";
+import axios from "axios";
+import AxiosMockAdapter from "axios-mock-adapter";
+import mockConsole from "jest-mock-console";
 
 const mockToast = jest.fn();
 jest.mock('react-toastify', () => {
