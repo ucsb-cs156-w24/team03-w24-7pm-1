@@ -10,13 +10,17 @@ jest.mock('react-router-dom', () => ({
     useNavigate: () => mockedNavigate
 }));
 
+
 describe("HelpRequestForm tests", () => {
+
     test("renders correctly", async () => {
+
         render(
             <Router >
                 <HelpRequestForm/>
             </Router>
         );
+
         await screen.findByText(/Create/);
     });
 
@@ -25,7 +29,7 @@ describe("HelpRequestForm tests", () => {
 
         render(
             <Router >
-                <HelpRequestForm initialContents={helpRequestFixtures.oneDate} />
+                <HelpRequestForm initialContents={helpRequestFixtures.oneHelpRequest} />
             </Router>
         );
         await screen.findByTestId(/HelpRequestForm-id/);
