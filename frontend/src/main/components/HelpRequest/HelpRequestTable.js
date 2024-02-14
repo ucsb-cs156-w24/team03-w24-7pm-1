@@ -1,15 +1,11 @@
 import OurTable, { ButtonColumn } from "main/components/OurTable";
-import React from "react";
 
+import { cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/HelpRequestUtils";
 import { hasRole } from "main/utils/currentUser";
-import { cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/helpRequestUtils";
 import { useBackendMutation } from "main/utils/useBackend";
 import { useNavigate } from "react-router-dom";
 
-export default function helpRequestTable({
-    helpRequests,
-    currentUser,
-    testIdPrefix = "HelpRequestTable" }) {
+export default function HelpRequestTable({ helpRequests, currentUser }) {
 
     const navigate = useNavigate();
 
@@ -28,6 +24,7 @@ export default function helpRequestTable({
 
     // Stryker disable next-line all : TODO try to make a good test for this
     const deleteCallback = async (cell) => { deleteMutation.mutate(cell); }
+
 
     const columns = [
         {
@@ -61,10 +58,9 @@ export default function helpRequestTable({
     ];
 
     if (hasRole(currentUser, "ROLE_ADMIN")) {
-        columns.push(ButtonColumn("Edit", "primary", editCallback, testIdPrefix));
-        columns.push(ButtonColumn("Delete", "danger", deleteCallback, testIdPrefix));
+        columns.push(ButtonColumn("Edit", "primary", editCallback, "HelpRequestTable"));
+        columns.push(ButtonColumn("Delete", "danger", deleteCallback, "HelpRequestTable"));
     } 
-
 
     const updatedHelpRequests = helpRequests.map(obj => ({
         ...obj,
@@ -74,6 +70,6 @@ export default function helpRequestTable({
     return <OurTable
         data={updatedHelpRequests}
         columns={columns}
-        testid={testIdPrefix}
+        testid={"HelpRequestTable"}
     />;
 };
