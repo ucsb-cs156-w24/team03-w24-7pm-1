@@ -1,8 +1,7 @@
-/*
-import React from 'react';
+
 import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
-import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
 import { helpRequestFixtures } from "fixtures/helpRequestFixtures";
+import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
 import { rest } from "msw";
 
 import HelpRequestIndexPage from "main/pages/HelpRequest/HelpRequestIndexPage";
@@ -64,4 +63,3 @@ ThreeItemsAdminUser.parameters = {
         }),
     ],
 }
-*/
