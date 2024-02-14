@@ -14,7 +14,6 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
         { defaultValues: initialContents || {}, }
     );
     // Stryker restore all
-
     const navigate = useNavigate();
 
     const testIdPrefix = "UCSBOrganizationForm";
