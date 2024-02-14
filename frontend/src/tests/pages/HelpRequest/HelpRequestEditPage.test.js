@@ -59,7 +59,7 @@ describe("HelpRequestEditPage tests", () => {
                     </MemoryRouter>
                 </QueryClientProvider>
             );
-            await screen.findByText("Edit HelpRequest");
+            await screen.findByText("Edit Help Requests");
             expect(screen.queryByTestId("HelpRequestForm-requesterEmail")).not.toBeInTheDocument();
             restoreConsole();
         });
