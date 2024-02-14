@@ -23,7 +23,6 @@ describe("UCSBOrganizationForm tests", () => {
         await screen.findByText(/Create/);
     });
 
-
     test("renders correctly when passing in a UCSBOrganization", async () => {
 
         render(
