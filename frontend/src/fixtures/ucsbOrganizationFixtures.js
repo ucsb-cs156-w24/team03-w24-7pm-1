@@ -3,26 +3,26 @@ const ucsbOrganizationFixtures = {
         "orgCode": "VSA",
         "orgTranslationShort": "VIET STU ASSC",
         "orgTranslation": "VIETNAMESE STUDENT ASSOCIATION",
-        "inactive": false
+        "inactive": "false"
     },
     threeOrganization: [
         {
             "orgCode": "VSA",
             "orgTranslationShort": "VIET STU ASSC",
             "orgTranslation": "VIETNAMESE STUDENT ASSOCIATION",
-            "inactive": false
+            "inactive": "false"
         },
         {
             "orgCode": "TT",
             "orgTranslationShort": "THETA TAU",
             "orgTranslation": "THETA TAU",
-            "inactive": false
+            "inactive": "false"
         },
         {
             "orgCode": "DEM",
             "orgTranslationShort": "DEL EP MU",
             "orgTranslation": "DELTA EPSILON MU",
-            "inactive": false
+            "inactive": "false"
         }
     ]
 };
