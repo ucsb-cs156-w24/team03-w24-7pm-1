@@ -43,7 +43,7 @@ export default function HelpRequestCreatePage({storybook=false}) {
   return (
     <BasicLayout>
       <div className="pt-2">
-        <h1>Create New HelpRequest</h1>
+        <h1>Create New Help Request</h1>
         <HelpRequestForm submitAction={onSubmit} />
       </div>
     </BasicLayout>
