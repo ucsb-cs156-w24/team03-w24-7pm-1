@@ -1,4 +1,4 @@
-import { useBackend } from 'main/utils/useBackend';
+/*import { useBackend } from 'main/utils/useBackend';
 
 import HelpRequestTable from 'main/components/HelpRequest/HelpRequestTable';
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
@@ -40,4 +40,4 @@ export default function HelpRequestIndexPage() {
       </div>
     </BasicLayout>
   )
-}
+}*/
