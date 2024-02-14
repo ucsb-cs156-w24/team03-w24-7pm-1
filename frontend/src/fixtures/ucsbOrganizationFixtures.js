@@ -1,38 +1,31 @@
-const UCSBOrganizationFixtures = {
-    oneOrganization:
-    [
-      {
+const ucsbOrganizationFixtures = {
+    oneOrganization: {
         "orgCode": "VSA",
-        "orgTranslationShort": "Viet Stu Assc",
-        "orgTranslation": "Vietnamese Student Association",
-        "inactive": false  
-      }
-    ],
-
-    threeOrganizations:
-    [
+        "orgTranslationShort": "VIET STU ASSC",
+        "orgTranslation": "VIETNAMESE STUDENT ASSOCIATION",
+        "inactive": false
+    },
+    threeOrganization: [
+        {
+            "orgCode": "VSA",
+            "orgTranslationShort": "VIET STU ASSC",
+            "orgTranslation": "VIETNAMESE STUDENT ASSOCIATION",
+            "inactive": false
+        },
         {
             "orgCode": "TT",
-            "orgTranslationShort": "Theta Tau",
-            "orgTranslation": "Theta Tau",
-            "inactive": false  
+            "orgTranslationShort": "THETA TAU",
+            "orgTranslation": "THETA TAU",
+            "inactive": false
         },
-
-        {
-            "orgCode": "TASA",
-            "orgTranslationShort": "Tai Amer Stu Assc",
-            "orgTranslation": "Taiwanese American Student Association",
-            "inactive": false  
-        },
-
         {
             "orgCode": "DEM",
-            "orgTranslationShort": "Delt Ep Mu",
-            "orgTranslation": "Delta Epsilon Mu",
-            "inactive": true    
-        },
-        
+            "orgTranslationShort": "DEL EP MU",
+            "orgTranslation": "DELTA EPSILON MU",
+            "inactive": false
+        }
     ]
 };
 
-export { UCSBOrganizationFixtures };
+
+export { ucsbOrganizationFixtures };
