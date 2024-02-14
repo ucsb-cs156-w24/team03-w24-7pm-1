@@ -1,5 +1,6 @@
 
 
+import HelpRequestTable from 'main/components/HelpRequest/HelpRequestTable';
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
 import { hasRole, useCurrentUser } from 'main/utils/currentUser';
 import { Button } from 'react-bootstrap';
@@ -28,6 +29,7 @@ export default function HelpRequestIndexPage() {
       <div className="pt-2">
         {createButton()}
         <h1>HelpRequest</h1>
+        <HelpRequestTable helpRequests={helpRequests} currentUser={currentUser} />
       </div>
     </BasicLayout>
   )
