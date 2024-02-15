@@ -69,6 +69,8 @@ describe("UCSBOrganizationForm tests", () => {
         fireEvent.click(submitButton);
 
         await screen.findByText(/orgTranslationShort is required./);
+
+        expect(screen.getByText(/orgCode is required./)).toBeInTheDocument();
         expect(screen.getByText(/orgTranslation is required./)).toBeInTheDocument();
         expect(screen.getByText(/inactive is required./)).toBeInTheDocument();
 
