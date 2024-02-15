@@ -86,11 +86,13 @@ describe("UCSBOrganizationForm tests", () => {
         );
         await screen.findByTestId("UCSBOrganizationForm-orgTranslationShort");
 
+        const orgCodeField = screen.getByTestId("UCSBOrganizationForm-orgCode");
         const orgTranslationShortField = screen.getByTestId("UCSBOrganizationForm-orgTranslationShort");
         const orgTranslationField = screen.getByTestId("UCSBOrganizationForm-orgTranslation");
         const inactive = screen.getByTestId("UCSBOrganizationForm-inactive");
         const submitButton = screen.getByTestId("UCSBOrganizationForm-submit");
 
+        fireEvent.change(orgCodeField, { target: { value: 'VSA' } });
         fireEvent.change(orgTranslationShortField, { target: { value: 'VIET STU ASSC' } });
         fireEvent.change(orgTranslationField, { target: { value: 'VIETNAMESE STUDENT ASSOCIATION' } });
         fireEvent.change(inactive, { target: { value: false } });
