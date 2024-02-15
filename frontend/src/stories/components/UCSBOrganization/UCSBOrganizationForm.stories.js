@@ -18,7 +18,7 @@ Create.args = {
     buttonLabel: "Create",
     submitAction: (data) => {
          console.log("Submit was clicked with data: ", data); 
-         window.alert("Submit was clicked with data: " + JSON.stringify(data));
+         window.alert("Submit was clicked with data: " + JSON.stringify(data)); 
     }
 };
 
