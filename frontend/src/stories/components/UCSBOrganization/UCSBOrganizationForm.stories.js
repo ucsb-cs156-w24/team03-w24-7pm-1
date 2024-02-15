@@ -12,7 +12,6 @@ const Template = (args) => {
         <UCSBOrganizationForm {...args} />
     )
 };
-
 export const Create = Template.bind({});
 
 Create.args = {
