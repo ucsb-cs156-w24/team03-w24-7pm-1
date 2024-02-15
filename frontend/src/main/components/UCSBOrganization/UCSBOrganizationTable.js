@@ -43,6 +43,8 @@ export default function UCSBOrganizationTable({ organizations, currentUser }) {
         {
             Header: 'inactive',
             accessor: 'inactive',
+            Cell: ({ value }) => value.toString()  // Explicitly convert boolean to string
+
         }
     ];
 
