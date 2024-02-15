@@ -15,20 +15,20 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
     // Stryker restore all
 
     const navigate = useNavigate();
-
+    
     // For explanation, see: https://stackoverflow.com/questions/3143070/javascript-regex-iso-datetime
     // Note that even this complex regex may still need some tweaks
 
     // Stryker disable next-line Regex
     const isodate_regex = /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
-    const email_regex = /[A-Za-z0-9]+@[A-Za-z]{4,}/i;
-    const teamId_regex = /[a-z][0-9]{2}-[0-9](p|a)m-[1-4]/i;
-
+    const email_regex = /[A-Za-z0-9]+@[A-Za-z]{4,}/i; 
+    const teamid_regex = /[a-z][0-9]{2}-[0-9](p|a)m-[1-4]/i; 
+    
 
     return (
 
         <Form onSubmit={handleSubmit(submitAction)}>
-<Row>
+            <Row>
                 {initialContents && (
                     <Col>
                         <Form.Group className="mb-3" >
@@ -44,9 +44,8 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
                         </Form.Group>
                     </Col>
                 )}
-</Row>
+            </Row>
             <Row>
-
                 <Col>
                     <Form.Group className="mb-3" >
                         <Form.Label htmlFor="requesterEmail">Requester Email</Form.Label>
@@ -55,7 +54,10 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
                             id="requesterEmail"
                             type="text"
                             isInvalid={Boolean(errors.requesterEmail)}
-                            {...register("requesterEmail", { required: true, pattern: email_regex })}
+                            {...register("requesterEmail", {
+                                required: true,
+                                pattern: email_regex
+                            })}
                         />
                         <Form.Control.Feedback type="invalid">
                             {errors.requesterEmail && 'Requester Email is required.'}
@@ -74,7 +76,10 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
                             id="teamId"
                             type="text"
                             isInvalid={Boolean(errors.teamId)}
-                            {...register("teamId", { required: true, pattern: teamId_regex })}
+                            {...register("teamId", {
+                                required: true,
+                                pattern: teamid_regex
+                            })}
                         />
                         <Form.Control.Feedback type="invalid">
                             {errors.teamId && 'Team ID is required.'}
@@ -105,7 +110,7 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
             </Row>
 
             <Row>
-            <Col>
+                <Col>
                     <Form.Group className="mb-3" >
                         <Form.Label htmlFor="requestTime">Request Time (iso format)</Form.Label>
                         <Form.Control
@@ -113,7 +118,10 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
                             id="requestTime"
                             type="datetime-local"
                             isInvalid={Boolean(errors.requestTime)}
-                            {...register("requestTime", { required: true, pattern: isodate_regex })}
+                            {...register("requestTime", {
+                                required: true,
+                                pattern: isodate_regex
+                            })}
                         />
                         <Form.Control.Feedback type="invalid">
                             {errors.requestTime && 'Request time is required and must be provided in ISO format.'}
@@ -141,7 +149,7 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
                     </Form.Group>
                 </Col>
             </Row>
-            
+
             <Row>
                 <Col>
                     <Form.Group className="mb-3" >

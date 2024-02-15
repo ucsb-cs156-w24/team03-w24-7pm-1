@@ -20,12 +20,11 @@ describe("HelpRequestForm tests", () => {
                 <HelpRequestForm/>
             </Router>
         );
-
+        await screen.findByText(/Request Time/);
         await screen.findByText(/Create/);
     });
 
-
-    test("renders correctly when passing in a HelpRequset", async () => {
+    test("renders correctly when passing in a HelpRequest", async () => {
 
         render(
             <Router >
@@ -53,7 +52,7 @@ describe("HelpRequestForm tests", () => {
         fireEvent.change(requesterEmailField, { target: { value: 'bad-input' } });
         fireEvent.change(teamIdField, { target: { value: 'bad-input' } });
         fireEvent.click(submitButton);
-        
+
         await screen.findByText(/Requester email must be a valid email./);
         expect(screen.getByText(/Team ID must be a valid team id./)).toBeInTheDocument();
 
@@ -88,7 +87,7 @@ describe("HelpRequestForm tests", () => {
                 <HelpRequestForm submitAction={mockSubmitAction} />
             </Router>
         );
-        await screen.findByTestId("HelpRequestForm-requesterEmail");
+        await screen.findByTestId("HelpRequestForm-teamId");
 
         const requesterEmailField = screen.getByTestId("HelpRequestForm-requesterEmail");
         const teamIdField = screen.getByTestId("HelpRequestForm-teamId");
@@ -97,18 +96,23 @@ describe("HelpRequestForm tests", () => {
         const explanationField = screen.getByTestId("HelpRequestForm-explanation");
         const solvedField = screen.getByTestId("HelpRequestForm-solved");
         const submitButton = screen.getByTestId("HelpRequestForm-submit");
-
+  
         fireEvent.change(requesterEmailField , { target: { value: 'test@ucsb.edu' } });
         fireEvent.change(teamIdField, { target: { value: 'w24-7pm-1' } });
         fireEvent.change(tableOrBreakoutRoomField, { target: { value: 'test' } });
         fireEvent.change(requestTimeField, { target: { value: '2022-01-02T12:00' } });
         fireEvent.change(explanationField, { target: { value: 'help' } });
-        fireEvent.change(solvedField, { target: { value: true } });
+        fireEvent.click(solvedField);
         fireEvent.click(submitButton);
 
         await waitFor(() => expect(mockSubmitAction).toHaveBeenCalled());
 
-        expect(screen.queryByText(/localDateTime must be in ISO format/)).not.toBeInTheDocument();
+        expect(screen.queryByText(/Requester email must be a valid email./)).not.toBeInTheDocument();
+        expect(screen.queryByText(/Team ID must be a valid team id./)).not.toBeInTheDocument();
+        expect(screen.queryByText(/Explanation is required./)).not.toBeInTheDocument();
+        expect(screen.queryByText(/Table or Breakout Room is required./)).not.toBeInTheDocument();
+        expect(screen.queryByText(/Request time is required and must be provided in ISO format./)).not.toBeInTheDocument();
+
     });
 
 
@@ -129,5 +133,4 @@ describe("HelpRequestForm tests", () => {
     });
 
 });
-
 
