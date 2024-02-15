@@ -76,6 +76,29 @@ describe("UCSBOrganizationForm tests", () => {
 
     });
 
+    test("Displays error message for invalid 'inactive' input", async () => {
+        render(
+            <Router>
+                <UCSBOrganizationForm />
+            </Router>
+        );
+    
+        // Wait for the 'inactive' input field to appear
+        const inactiveField = await screen.findByTestId("UCSBOrganizationForm-inactive");
+        
+        // Simulate entering an invalid value (not "true" or "false")
+        fireEvent.change(inactiveField, { target: { value: 'invalid' } });
+        
+        // Simulate form submission
+        const submitButton = screen.getByTestId("UCSBOrganizationForm-submit");
+        fireEvent.click(submitButton);
+    
+        // Check for the expected error message
+        const errorMessage = await screen.findByText("The input should be just true or false");
+        expect(errorMessage).toBeInTheDocument();
+    });
+    
+
     test("No Error messsages on good input", async () => {
 
         const mockSubmitAction = jest.fn();
