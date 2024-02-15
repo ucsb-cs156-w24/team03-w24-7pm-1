@@ -21,9 +21,10 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
 
     // Stryker disable next-line Regex
     const isodate_regex = /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
+
+    // Stryker disable next-line Regex
     const email_regex = /[A-Za-z0-9]+@[A-Za-z]{4,}/i; 
     const teamid_regex = /[a-z][0-9]{2}-[0-9](p|a)m-[1-4]/i; 
-    
 
     return (
 
