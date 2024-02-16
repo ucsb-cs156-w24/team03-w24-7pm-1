@@ -34,7 +34,7 @@ export default function RestaurantCreatePage({storybook=false}) {
   }
 
   if (isSuccess && !storybook) {
-    return <Navigate to="/ucsbdiningcommonsmenuitems" />
+    return <Navigate to="/diningcommonsmenuitem" />
   }
 
   return (

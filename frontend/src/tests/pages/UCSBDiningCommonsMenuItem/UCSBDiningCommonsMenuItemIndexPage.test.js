@@ -59,7 +59,7 @@ describe("UCSBDiningCommonsMenuItemIndexPage tests", () => {
             expect(screen.getByText(/Create UCSBDiningCommonsMenuItem/)).toBeInTheDocument();
         });
         const button = screen.getByText(/Create UCSBDiningCommonsMenuItem/);
-        expect(button).toHaveAttribute("href", "/UCSBDiningCommonsMenuItem/create");
+        expect(button).toHaveAttribute("href", "/diningcommonsmenuitem/create");
         expect(button).toHaveAttribute("style", "float: right;");
     });
 

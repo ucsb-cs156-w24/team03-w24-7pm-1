@@ -103,7 +103,7 @@ describe("UCSBDiningCommonsMenuItemCreatePage tests", () => {
 
         // assert - check that the toast was called with the expected message
         expect(mockToast).toBeCalledWith("New UCSB Dining Commons Menu Item created - id: 2 name: Bread");
-        expect(mockNavigate).toBeCalledWith({ "to": "/ucsbdiningcommonsmenuitems" });
+        expect(mockNavigate).toBeCalledWith({ "to": "/diningcommonsmenuitem" });
 
     });
 });
