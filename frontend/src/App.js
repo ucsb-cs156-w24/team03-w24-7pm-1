@@ -64,7 +64,7 @@ function App() {
               <Route exact path="/restaurants/create" element={<RestaurantCreatePage />} />
             </>
           )
-        }
+         }
         {
           hasRole(currentUser, "ROLE_USER") && (
             <>
