@@ -55,9 +55,9 @@ describe("MenuItemReviewCreatePage tests", () => {
         const queryClient = new QueryClient();
         const menuItemReview = {
             id: 12,
-            itemId: 1001,
+            itemId: "1001",
             reviewerEmail: "local@host.com",
-            stars: 5,
+            stars: "5",
             dateReviewed: "2022-02-12T12:00:00",
             comments: "This is a great item"
         };
@@ -86,7 +86,7 @@ describe("MenuItemReviewCreatePage tests", () => {
         fireEvent.change(itemIdField, { target: { value: '1001' } });
         fireEvent.change(reviewerEmailField, { target: { value: 'local@host.com' } });
         fireEvent.change(starsField, { target: { value: '5' } });
-        fireEvent.change(dateReviewedField, { target: { value: '2022-02-12T12:00:00' } });
+        fireEvent.change(dateReviewedField, { target: { value: '2022-02-12T12:00' } });
         fireEvent.change(commentsField, { target: { value: 'This is a great item' } });
 
         expect(submitButton).toBeInTheDocument();
@@ -97,14 +97,14 @@ describe("MenuItemReviewCreatePage tests", () => {
 
         expect(axiosMock.history.post[0].params).toEqual(
             {
-            itemId: 1001,
+            itemId: "1001",
             reviewerEmail: "local@host.com",
-            stars: 5,
-            dateReviewed: "2022-02-12T12:00:00",
+            stars: "5",
+            dateReviewed: "2022-02-12T12:00",
             comments: "This is a great item"
         });
 
-        expect(mockToast).toBeCalledWith("New menuItemReview Created - id: 17 itemId: 1001");
+        expect(mockToast).toBeCalledWith("New menuItemReview Created - id: 12 itemId: 1001");
         expect(mockNavigate).toBeCalledWith({ "to": "/menuitemreview" });
     });
 
