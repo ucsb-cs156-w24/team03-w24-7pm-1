@@ -53,7 +53,7 @@ function ArticlesForm({ initialContents, submitAction, buttonLabel = "Create" })
 
                 <Col>
                     <Form.Group className="mb-3" >
-                        <Form.Label htmlFor="title">Title of Article</Form.Label>
+                        <Form.Label htmlFor="title">Title</Form.Label>
                         <Form.Control
                             data-testid="ArticlesForm-title"
                             id="title"
@@ -68,7 +68,7 @@ function ArticlesForm({ initialContents, submitAction, buttonLabel = "Create" })
                 </Col>
                 <Col>
                     <Form.Group className="mb-3" >
-                        <Form.Label htmlFor="url">URL of Article</Form.Label>
+                        <Form.Label htmlFor="url">URL</Form.Label>
                         <Form.Control
                             data-testid="ArticlesForm-url"
                             id="url"
@@ -84,7 +84,7 @@ function ArticlesForm({ initialContents, submitAction, buttonLabel = "Create" })
                 </Col>
                 <Col>
                     <Form.Group className="mb-3" >
-                        <Form.Label htmlFor="explanation">An Explanation of the Article</Form.Label>
+                        <Form.Label htmlFor="explanation">Explanation</Form.Label>
                         <Form.Control
                             data-testid="ArticlesForm-explanation"
                             id="explanation"
@@ -99,7 +99,7 @@ function ArticlesForm({ initialContents, submitAction, buttonLabel = "Create" })
                 </Col>
                 <Col>
                     <Form.Group className="mb-3" >
-                        <Form.Label htmlFor="email">Email of the Article</Form.Label>
+                        <Form.Label htmlFor="email">Email</Form.Label>
                         <Form.Control
                             data-testid="ArticlesForm-email"
                             id="email"
@@ -115,7 +115,7 @@ function ArticlesForm({ initialContents, submitAction, buttonLabel = "Create" })
                 </Col>
                 <Col>
                     <Form.Group className="mb-3" >
-                        <Form.Label htmlFor="dateAdded">Date (iso format)</Form.Label>
+                        <Form.Label htmlFor="dateAdded">Date Added</Form.Label>
                         <Form.Control
                             data-testid="ArticlesForm-dateAdded"
                             id="dateAdded"
