@@ -88,7 +88,7 @@ describe("ArticlesIndexPage tests", () => {
         expect(screen.getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent("3");
 
         // assert that the Create button is not present when user isn't an admin
-        expect(screen.queryByText(/Create UCSBDate/)).not.toBeInTheDocument();
+        expect(screen.queryByText(/Create Article/)).not.toBeInTheDocument();
 
     });
 
