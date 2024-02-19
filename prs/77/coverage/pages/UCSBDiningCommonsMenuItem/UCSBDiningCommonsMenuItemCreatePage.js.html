@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for pages/UCSBOrganization/UCSBOrganizationCreatePage.js</title>
+    <title>Code coverage report for pages/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemCreatePage.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">pages/UCSBOrganization</a> UCSBOrganizationCreatePage.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">pages/UCSBDiningCommonsMenuItem</a> UCSBDiningCommonsMenuItemCreatePage.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -129,7 +129,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -159,34 +158,34 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
-import UCSBOrganizationForm from "main/components/UCSBOrganization/UCSBOrganizationForm";
+import UCSBDiningCommonsMenuItemForm from "main/components/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemForm";
 import { Navigate } from 'react-router-dom'
 import { useBackendMutation } from "main/utils/useBackend";
 import { toast } from "react-toastify";
 &nbsp;
-export default function UCSBOrganizationCreatePage({storybook=false}) {
+export default function RestaurantCreatePage({storybook=false}) {
 &nbsp;
-  const objectToAxiosParams = (organization) =&gt; ({
-    url: "/api/ucsborganization/post",
+  const objectToAxiosParams = (UCSBDiningCommonsMenuItem) =&gt; ({
+    url: "/api/UCSBDiningCommonsMenuItem/post",
     method: "POST",
     params: {
-     orgCode: organization.orgCode,
-     orgTranslationShort: organization.orgTranslationShort,
-     orgTranslation: organization.orgTranslation,
-     inactive: organization.inactive
+     name: UCSBDiningCommonsMenuItem.name,
+     diningCommonsCode: UCSBDiningCommonsMenuItem.diningCommonsCode,
+     station: UCSBDiningCommonsMenuItem.station
     }
   });
 &nbsp;
-  const onSuccess = (organization) =&gt; {
-    toast(`New organization Created - orgCode: ${organization.orgCode} orgTranslationShort: ${organization.orgTranslationShort} orgTranslation: ${organization.orgTranslation} inactive: ${organization.inactive}`);
+  const onSuccess = (UCSBDiningCommonsMenuItem) =&gt; {
+    toast(`New UCSB Dining Commons Menu Item created - id: ${UCSBDiningCommonsMenuItem.id} name: ${UCSBDiningCommonsMenuItem.name}`);
   }
 &nbsp;
   const mutation = useBackendMutation(
     objectToAxiosParams,
      { onSuccess }, 
      // Stryker disable next-line all : hard to set up test for caching
-     ["/api/ucsborganization/all"] // mutation makes this key stale so that pages relying on it reload
+     ["/api/UCSBDiningCommonsMenuItem/all"] // mutation makes this key stale so that pages relying on it reload
      );
 &nbsp;
   const { isSuccess } = mutation
@@ -196,18 +195,19 @@ export default function UCSBOrganizationCreatePage({storybook=false}) {
   }
 &nbsp;
   if (isSuccess &amp;&amp; !storybook) {
-    return &lt;Navigate to="/ucsborganization" /&gt;
+    return &lt;Navigate to="/diningcommonsmenuitem" /&gt;
   }
 &nbsp;
   return (
     &lt;BasicLayout&gt;
       &lt;div className="pt-2"&gt;
-        &lt;h1&gt;Create New Organization&lt;/h1&gt;
-        &lt;UCSBOrganizationForm submitAction={onSubmit} /&gt;
+        &lt;h1&gt;Create New UCSBDiningCommonsMenuItem&lt;/h1&gt;
+        &lt;UCSBDiningCommonsMenuItemForm submitAction={onSubmit} /&gt;
       &lt;/div&gt;
     &lt;/BasicLayout&gt;
   )
-}</pre></td></tr></table></pre>
+}
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
