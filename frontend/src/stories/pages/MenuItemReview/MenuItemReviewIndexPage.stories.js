@@ -5,7 +5,7 @@ import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
 import { menuItemReviewFixtures } from "fixtures/menuItemReviewFixtures";
 import { rest } from "msw";
 
-import MenuItemReviewIndexPage from "main/pages/UCSBDates/MenuItemReviewIndexPage";
+import MenuItemReviewIndexPage from "main/pages/MenuItemReview/MenuItemReviewIndexPage";
 
 export default {
     title: 'pages/MenuItemReview/MenuItemReviewIndexPage',
