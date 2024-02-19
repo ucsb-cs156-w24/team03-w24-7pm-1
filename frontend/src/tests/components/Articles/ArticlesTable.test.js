@@ -58,7 +58,10 @@ describe("ArticlesTable tests", () => {
       </QueryClientProvider>
     );
 
+<<<<<<< HEAD
     // assert
+=======
+>>>>>>> c0354cee50995c350e3869c8887d4cf0e9c26cb7
     expectedHeaders.forEach((headerText) => {
       const header = screen.getByText(headerText);
       expect(header).toBeInTheDocument();
