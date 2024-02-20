@@ -20,8 +20,8 @@ describe("MenuItemReviewForm tests", () => {
                 <MenuItemReviewForm />
             </Router>
         );
-        await screen.getByText(/Item ID/);
-        await screen.getByText(/Create/);
+        expect(screen.getByText(/Item ID/)).toBeInTheDocument();
+        expect(screen.getByText(/Create/)).toBeInTheDocument();
     });
 
 
@@ -59,8 +59,8 @@ describe("MenuItemReviewForm tests", () => {
         fireEvent.click(submitButton);
         
         await waitFor(() => {expect(screen.getByText(/dateReviewed is required/)).toBeInTheDocument();});
-        expect(screen.queryByText(/Item Id must be greater than or equal to 0/)).toBeInTheDocument();
-        expect(screen.queryByText(/Stars must be greater than or equal to 0/)).toBeInTheDocument();
+        expect(screen.getByText(/Item Id must be greater than or equal to 0/)).toBeInTheDocument();
+        expect(screen.getByText(/Stars must be greater than or equal to 0/)).toBeInTheDocument();
         expect(screen.getByText(/Comments must be less than 255 characters/)).toBeInTheDocument();
 
         const starsField1 = screen.getByTestId("MenuItemReviewForm-stars");
@@ -86,10 +86,10 @@ describe("MenuItemReviewForm tests", () => {
         fireEvent.click(submitButton);
 
         await screen.findByText(/dateReviewed is required/);
-        expect(screen.queryByText(/Item Id is required/)).toBeInTheDocument();
-        expect(screen.queryByText(/Stars is required/)).toBeInTheDocument();
-        expect(screen.queryByText(/Comments are required./)).toBeInTheDocument();
-        expect(screen.queryByText(/ReviewerEmail is required./)).toBeInTheDocument();
+        expect(screen.getByText(/Item Id is required/)).toBeInTheDocument();
+        expect(screen.getByText(/Stars is required/)).toBeInTheDocument();
+        expect(screen.getByText(/Comments are required./)).toBeInTheDocument();
+        expect(screen.getByText(/ReviewerEmail is required./)).toBeInTheDocument();
 
     });
 
