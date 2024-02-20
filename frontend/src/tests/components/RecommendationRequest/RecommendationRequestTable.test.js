@@ -35,7 +35,6 @@ describe("UserTable tests", () => {
 
     expectedHeaders.forEach((headerText) => {
       const header = screen.getByText(headerText);
-      console.log(header + headerText);
       expect(header).toBeInTheDocument();
     }); 
 

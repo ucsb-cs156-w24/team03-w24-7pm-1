@@ -136,12 +136,18 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
                 <Col>
                 <Form.Group className="mb-3" >
                         <Form.Label htmlFor="done">Done?</Form.Label>
-                        <Form.Check
-                            data-testid="HelpRequestForm-done"
+                        <Form.Control
+                            data-testid="RecommendationRequestForm-done"
                             id="done"
-                            type="switch"
-                            {...register("done")}
+                            type="Boolean"
+                            isInvalid={Boolean(errors.done)}
+                            {...register("done", {
+                                required: "done is required."
+                            })}
                         />
+                        <Form.Control.Feedback type="invalid">
+                            {errors.done && 'done is required.'}
+                        </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
             </Row>
