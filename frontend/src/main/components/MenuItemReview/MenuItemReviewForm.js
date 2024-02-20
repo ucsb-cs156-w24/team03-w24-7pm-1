@@ -105,10 +105,10 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                             id="dateReviewed"
                             type="datetime-local"
                             isInvalid={Boolean(errors.dateReviewed)}
-                            {...register("dateReviewed", { required: true, pattern: isodate_regex })}
+                            {...register("dateReviewed", { required: "dateReviewed is required", pattern: isodate_regex })}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.dateReviewed && 'dateReviewed is required in iso format.'}
+                            {errors.dateReviewed?.message}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>

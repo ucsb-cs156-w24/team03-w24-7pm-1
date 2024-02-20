@@ -45,14 +45,32 @@ describe("MenuItemReviewForm tests", () => {
                 <MenuItemReviewForm />
             </Router>
         );
-        await screen.findByTestId("MenuItemReviewForm-dateReviewed");
+        await screen.findByTestId("MenuItemReviewForm-itemId");
+        const itemIDField = screen.getByTestId("MenuItemReviewForm-itemId");
+        const starsField = screen.getByTestId("MenuItemReviewForm-stars");
         const dateReviewedField = screen.getByTestId("MenuItemReviewForm-dateReviewed");
+        const commentsField = screen.getByTestId("MenuItemReviewForm-comments");
         const submitButton = screen.getByTestId("MenuItemReviewForm-submit");
 
         fireEvent.change(dateReviewedField, { target: { value: 'bad-input' } });
+        fireEvent.change(itemIDField, { target: { value: '-1' } });
+        fireEvent.change(starsField, { target: { value: '-1' } });
+        fireEvent.change(commentsField, { target: { value: "a".repeat(256) } });
+        fireEvent.click(submitButton);
+        
+        await waitFor(() => {expect(screen.getByText(/dateReviewed is required/)).toBeInTheDocument();});
+        expect(screen.queryByText(/Item Id must be greater than or equal to 0/)).toBeInTheDocument();
+        expect(screen.queryByText(/Stars must be greater than or equal to 0/)).toBeInTheDocument();
+        expect(screen.getByText(/Comments must be less than 255 characters/)).toBeInTheDocument();
+
+        const starsField1 = screen.getByTestId("MenuItemReviewForm-stars");
+        fireEvent.change(starsField1, { target: { value: '7' } });
         fireEvent.click(submitButton);
 
-        await screen.findByText(/dateReviewed is required in iso format./);
+        await waitFor(() => {
+            expect(screen.getByText(/Stars must be less than or equal to 5/)).toBeInTheDocument();
+        });
+
     });
 
     test("Correct Error messsages on missing input", async () => {
@@ -67,7 +85,11 @@ describe("MenuItemReviewForm tests", () => {
 
         fireEvent.click(submitButton);
 
-        await screen.findByText(/dateReviewed is required in iso format./);
+        await screen.findByText(/dateReviewed is required/);
+        expect(screen.queryByText(/Item Id is required/)).toBeInTheDocument();
+        expect(screen.queryByText(/Stars is required/)).toBeInTheDocument();
+        expect(screen.queryByText(/Comments are required./)).toBeInTheDocument();
+        expect(screen.queryByText(/ReviewerEmail is required./)).toBeInTheDocument();
 
     });
 
