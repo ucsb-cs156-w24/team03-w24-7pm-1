@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for pages/HelpRequest/HelpRequestCreatePage.js</title>
+    <title>Code coverage report for pages/RecommendationRequest/RecommendationRequestCreatePage.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">pages/HelpRequest</a> HelpRequestCreatePage.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">pages/RecommendationRequest</a> RecommendationRequestCreatePage.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -113,7 +113,9 @@
 <a name='L48'></a><a href='#L48'>48</a>
 <a name='L49'></a><a href='#L49'>49</a>
 <a name='L50'></a><a href='#L50'>50</a>
-<a name='L51'></a><a href='#L51'>51</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -163,36 +165,38 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import HelpRequestForm from "main/components/HelpRequest/HelpRequestForm";
-import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
+import RecommendationRequestForm from "main/components/RecommendationRequest/RecommendationRequestForm";
+import { Navigate } from 'react-router-dom'
 import { useBackendMutation } from "main/utils/useBackend";
-import { Navigate } from 'react-router-dom';
 import { toast } from "react-toastify";
 &nbsp;
-export default function HelpRequestCreatePage({storybook=false}) {
+export default function RecommendationRequestCreatePage({storybook=false}) {
 &nbsp;
-  const objectToAxiosParams = (helpRequest) =&gt; ({
-    url: "/api/helprequest/post",
+  const objectToAxiosParams = (recommendationRequest) =&gt; ({
+    url: "/api/recommendationrequests/post",
     method: "POST",
     params: {
-      requesterEmail: helpRequest.requesterEmail,
-      teamId: helpRequest.teamId,
-      tableOrBreakoutRoom: helpRequest.tableOrBreakoutRoom,
-      requestTime: helpRequest.requestTime,
-      explanation: helpRequest.explanation,
-      solved: helpRequest.solved
+      requesterEmail: recommendationRequest.requesterEmail,
+      professorEmail: recommendationRequest.professorEmail,
+      explanation: recommendationRequest.explanation,
+      dateRequested: recommendationRequest.dateRequested,
+      dateNeeded: recommendationRequest.dateNeeded,
+      done: recommendationRequest.done
     }
   });
 &nbsp;
-  const onSuccess = (helpRequest) =&gt; {
-    toast(`New helpRequest Created - id: ${helpRequest.id} requesterEmail: ${helpRequest.requesterEmail}`);
+  const onSuccess = (recommendationRequest) =&gt; {
+    toast(`New recommendationRequest Created - id: ${recommendationRequest.id}`);
   }
 &nbsp;
   const mutation = useBackendMutation(
     objectToAxiosParams,
      { onSuccess }, 
      // Stryker disable next-line all : hard to set up test for caching
-     ["/api/helprequest/all"]
+     ["/api/recommendationrequests/all"]
      );
 &nbsp;
   const { isSuccess } = mutation
@@ -202,14 +206,16 @@ export default function HelpRequestCreatePage({storybook=false}) {
   }
 &nbsp;
   if (isSuccess &amp;&amp; !storybook) {
-    return &lt;Navigate to="/helprequest" /&gt;
+    return &lt;Navigate to="/recommendationrequest" /&gt;
   }
 &nbsp;
   return (
     &lt;BasicLayout&gt;
       &lt;div className="pt-2"&gt;
-        &lt;h1&gt;Create New Help Request&lt;/h1&gt;
-        &lt;HelpRequestForm submitAction={onSubmit} /&gt;
+        &lt;h1&gt;Create New RecommendationRequest&lt;/h1&gt;
+&nbsp;
+        &lt;RecommendationRequestForm submitAction={onSubmit} /&gt;
+&nbsp;
       &lt;/div&gt;
     &lt;/BasicLayout&gt;
   )
