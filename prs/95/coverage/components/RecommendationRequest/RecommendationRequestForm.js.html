@@ -25,28 +25,28 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>7/7</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">90% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>18/20</span>
+                <span class='fraction'>17/17</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/7</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
@@ -234,14 +234,7 @@
 <a name='L169'></a><a href='#L169'>169</a>
 <a name='L170'></a><a href='#L170'>170</a>
 <a name='L171'></a><a href='#L171'>171</a>
-<a name='L172'></a><a href='#L172'>172</a>
-<a name='L173'></a><a href='#L173'>173</a>
-<a name='L174'></a><a href='#L174'>174</a>
-<a name='L175'></a><a href='#L175'>175</a>
-<a name='L176'></a><a href='#L176'>176</a>
-<a name='L177'></a><a href='#L177'>177</a>
-<a name='L178'></a><a href='#L178'>178</a>
-<a name='L179'></a><a href='#L179'>179</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L172'></a><a href='#L172'>172</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -380,13 +373,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -482,7 +468,7 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
                         /&gt;
                         &lt;Form.Control.Feedback type="invalid"&gt;
                             {errors.requesterEmail &amp;&amp; 'requesterEmail is required. '}
-                            {errors.requesterEmail?.type === 'pattern' &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >'requesterEmail must be a valid email'}</span>
+                            {errors.requesterEmail?.type === 'pattern' &amp;&amp; 'requesterEmail must be a valid email'}
                         &lt;/Form.Control.Feedback&gt;
                     &lt;/Form.Group&gt;
                 &lt;/Col&gt;
@@ -555,21 +541,14 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
 &nbsp;
             &lt;Row&gt;
                 &lt;Col&gt;
-                    &lt;Form.Group className="mb-3" &gt;
-                        &lt;Form.Label htmlFor="done"&gt;done&lt;/Form.Label&gt;
-                        &lt;Form.Control
-                            data-testid="RecommendationRequestForm-done"
+                &lt;Form.Group className="mb-3" &gt;
+                        &lt;Form.Label htmlFor="done"&gt;Done?&lt;/Form.Label&gt;
+                        &lt;Form.Check
+                            data-testid="HelpRequestForm-done"
                             id="done"
-                            type="Boolean"
-                            isInvalid={Boolean(errors.done)}
-                            {...register("done", {
-                                required: "done is required.",
-                                validate: value =&gt; value === 'true' || value === 'false' || <span class="branch-2 cbranch-no" title="branch not covered" >"The input should be just true or false" </span>
-                            })}
+                            type="switch"
+                            {...register("done")}
                         /&gt;
-                        &lt;Form.Control.Feedback type="invalid"&gt;
-                            {errors.done?.message}
-                        &lt;/Form.Control.Feedback&gt;
                     &lt;/Form.Group&gt;
                 &lt;/Col&gt;
             &lt;/Row&gt;
@@ -604,7 +583,7 @@ export default RecommendationRequestForm;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Mon Feb 19 2024 20:06:02 GMT-0800 (Pacific Standard Time)
+                at Mon Feb 19 2024 20:26:24 GMT-0800 (Pacific Standard Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
