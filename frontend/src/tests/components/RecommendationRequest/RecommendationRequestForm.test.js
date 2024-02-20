@@ -48,9 +48,6 @@ describe("RecommendationRequestForm tests", () => {
         await screen.findByTestId("RecommendationRequestForm-professorEmail");
         const professorEmailField = screen.getByTestId("RecommendationRequestForm-professorEmail");
         const requesterEmailField = screen.getByTestId("RecommendationRequestForm-requesterEmail");
-        const explanationField = screen.getByTestId("RecommendationRequestForm-explanation");
-        const dateRequestedField = screen.getByTestId("RecommendationRequestForm-dateRequested");
-        const dateNeededField = screen.getByTestId("RecommendationRequestForm-dateNeeded");
         const submitButton = screen.getByTestId("RecommendationRequestForm-submit");
 
         fireEvent.change(professorEmailField, { target: { value: 'bad-input' } });
