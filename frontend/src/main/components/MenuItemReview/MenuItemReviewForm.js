@@ -68,7 +68,7 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                         data-testid={"MenuItemReviewForm-reviewerEmail"}
                         id="reviewerEmail"
                         type="text"
-                        isInvalid={Boolean(errors.name)}
+                        isInvalid={Boolean(errors.reviewerEmail)}
                         {...register("reviewerEmail", {
                             required: "ReviewerEmail is required."
                         })}
@@ -85,13 +85,14 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                             data-testid="MenuItemReviewForm-stars"
                             id="stars"
                             type="number"
-                            isInvalid={Boolean(errors.itemId)}
+                            isInvalid={Boolean(errors.stars)}
                             {...register("stars", { required: "Stars is required" ,
                                 min: { value: 0, message: "Stars must be greater than or equal to 0" },
                                 max: { value: 5, message: "Stars must be less than or equal to 5" }})}
                         />
                         <Form.Control.Feedback type="invalid">
                             {errors.stars?.message}
+
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
@@ -124,7 +125,8 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                             type="text"
                             isInvalid={Boolean(errors.name)}
                             {...register("comments", {
-                                required: "Comments are required."
+                                required: "Comments are required.",
+                                maxLength: { value: 255, message: "Comments must be less than 255 characters" }
                             })}
                         />
                         <Form.Control.Feedback type="invalid">
