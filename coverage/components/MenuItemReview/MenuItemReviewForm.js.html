@@ -32,7 +32,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>11/11</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
@@ -235,20 +235,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">26x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">26x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">26x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">26x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -438,12 +438,12 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                             &lt;Form.Control
                                 data-testid="MenuItemReviewForm-itemId"
                                 id="itemId"
-                                type="text"
+                                type="number"
                                 isInvalid={Boolean(errors.itemId)}
-                                {...register("itemId", { required: "Item Id is required" })}
+                                {...register("itemId", { required: "Item Id is required" ,
+                                    min: { value: 0, message: "Item Id must be greater than or equal to 0" }})}
                             /&gt;
                             &lt;Form.Control.Feedback type="invalid"&gt;
-                                {errors.itemId &amp;&amp; 'itemId is required.'}
                                 {errors.itemId?.message}
                             &lt;/Form.Control.Feedback&gt;
                         &lt;/Form.Group&gt;
@@ -455,9 +455,9 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                         data-testid={"MenuItemReviewForm-reviewerEmail"}
                         id="reviewerEmail"
                         type="text"
-                        isInvalid={Boolean(errors.name)}
+                        isInvalid={Boolean(errors.reviewerEmail)}
                         {...register("reviewerEmail", {
-                            required: "reviewerEmail is required."
+                            required: "ReviewerEmail is required."
                         })}
                     /&gt;
                     &lt;Form.Control.Feedback type="invalid"&gt;
@@ -471,13 +471,15 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                         &lt;Form.Control
                             data-testid="MenuItemReviewForm-stars"
                             id="stars"
-                            type="text"
-                            isInvalid={Boolean(errors.itemId)}
-                            {...register("stars", { required: "Stars is required" })}
+                            type="number"
+                            isInvalid={Boolean(errors.stars)}
+                            {...register("stars", { required: "Stars is required" ,
+                                min: { value: 0, message: "Stars must be greater than or equal to 0" },
+                                max: { value: 5, message: "Stars must be less than or equal to 5" }})}
                         /&gt;
                         &lt;Form.Control.Feedback type="invalid"&gt;
-                            {errors.stars &amp;&amp; 'stars is required.'}
                             {errors.stars?.message}
+&nbsp;
                         &lt;/Form.Control.Feedback&gt;
                     &lt;/Form.Group&gt;
                 &lt;/Col&gt;
@@ -490,10 +492,10 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                             id="dateReviewed"
                             type="datetime-local"
                             isInvalid={Boolean(errors.dateReviewed)}
-                            {...register("dateReviewed", { required: true, pattern: isodate_regex })}
+                            {...register("dateReviewed", { required: "dateReviewed is required", pattern: isodate_regex })}
                         /&gt;
                         &lt;Form.Control.Feedback type="invalid"&gt;
-                            {errors.dateReviewed &amp;&amp; 'dateReviewed is required in iso format.'}
+                            {errors.dateReviewed?.message}
                         &lt;/Form.Control.Feedback&gt;
                     &lt;/Form.Group&gt;
                 &lt;/Col&gt;
@@ -502,9 +504,6 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
             &lt;Row&gt;
 &nbsp;
                 &lt;Col&gt;
-&nbsp;
-&nbsp;
-&nbsp;
                     &lt;Form.Group className="mb-3" &gt;
                         &lt;Form.Label htmlFor="comments"&gt;Comments&lt;/Form.Label&gt;
                         &lt;Form.Control
@@ -513,7 +512,8 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                             type="text"
                             isInvalid={Boolean(errors.name)}
                             {...register("comments", {
-                                required: "comments are required."
+                                required: "Comments are required.",
+                                maxLength: { value: 255, message: "Comments must be less than 255 characters" }
                             })}
                         /&gt;
                         &lt;Form.Control.Feedback type="invalid"&gt;
@@ -553,7 +553,7 @@ export default MenuItemReviewForm;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Mon Feb 19 2024 23:48:06 GMT-0800 (Pacific Standard Time)
+                at Mon Feb 19 2024 23:57:30 GMT-0800 (Pacific Standard Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
