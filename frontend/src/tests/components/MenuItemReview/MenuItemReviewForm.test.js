@@ -20,8 +20,8 @@ describe("MenuItemReviewForm tests", () => {
                 <MenuItemReviewForm />
             </Router>
         );
-        await screen.findByText(/Item ID/);
-        await screen.findByText(/Create/);
+        await screen.getByText(/Item ID/);
+        await screen.getByText(/Create/);
     });
 
 
