@@ -51,12 +51,12 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                             <Form.Control
                                 data-testid="MenuItemReviewForm-itemId"
                                 id="itemId"
-                                type="text"
+                                type="number"
                                 isInvalid={Boolean(errors.itemId)}
-                                {...register("itemId", { required: "Item Id is required" })}
+                                {...register("itemId", { required: "Item Id is required" ,
+                                    min: { value: 0, message: "Item Id must be greater than or equal to 0" }})}
                             />
                             <Form.Control.Feedback type="invalid">
-                                {errors.itemId && 'itemId is required.'}
                                 {errors.itemId?.message}
                             </Form.Control.Feedback>
                         </Form.Group>
@@ -70,7 +70,7 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                         type="text"
                         isInvalid={Boolean(errors.name)}
                         {...register("reviewerEmail", {
-                            required: "reviewerEmail is required."
+                            required: "ReviewerEmail is required."
                         })}
                     />
                     <Form.Control.Feedback type="invalid">
@@ -84,12 +84,13 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                         <Form.Control
                             data-testid="MenuItemReviewForm-stars"
                             id="stars"
-                            type="text"
+                            type="number"
                             isInvalid={Boolean(errors.itemId)}
-                            {...register("stars", { required: "Stars is required" })}
+                            {...register("stars", { required: "Stars is required" ,
+                                min: { value: 0, message: "Stars must be greater than or equal to 0" },
+                                max: { value: 5, message: "Stars must be less than or equal to 5" }})}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.stars && 'stars is required.'}
                             {errors.stars?.message}
                         </Form.Control.Feedback>
                     </Form.Group>
@@ -115,9 +116,6 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
             <Row>
 
                 <Col>
-
-
-
                     <Form.Group className="mb-3" >
                         <Form.Label htmlFor="comments">Comments</Form.Label>
                         <Form.Control
@@ -126,7 +124,7 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                             type="text"
                             isInvalid={Boolean(errors.name)}
                             {...register("comments", {
-                                required: "comments are required."
+                                required: "Comments are required."
                             })}
                         />
                         <Form.Control.Feedback type="invalid">

@@ -55,9 +55,9 @@ describe("MenuItemReviewCreatePage tests", () => {
         const queryClient = new QueryClient();
         const menuItemReview = {
             id: 12,
-            itemId: "1001",
+            itemId: 1001,
             reviewerEmail: "local@host.com",
-            stars: "5",
+            stars: 5,
             dateReviewed: "2022-02-12T12:00:00",
             comments: "This is a great item"
         };

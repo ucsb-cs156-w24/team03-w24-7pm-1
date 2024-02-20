@@ -76,9 +76,9 @@ describe("MenuItemReviewEditPage tests", () => {
             axiosMock.onGet("/api/systemInfo").reply(200, systemInfoFixtures.showingNeither);
             axiosMock.onGet("/api/menuitemreview", { params: { id: 17 } }).reply(200, {
                 id: 17,
-                itemId: "1001",
+                itemId: 1001,
                 reviewerEmail: "local@host.com",
-                stars: "5",
+                stars: 5,
                 dateReviewed: "2022-02-12T12:01",
                 comments: "This is a great item"
             });
@@ -124,9 +124,9 @@ describe("MenuItemReviewEditPage tests", () => {
             const submitButton = screen.getByTestId("MenuItemReviewForm-submit");
 
             expect(idField).toHaveValue("17");
-            expect(itemIdField).toHaveValue("1001");
+            expect(itemIdField).toHaveValue(1001);
             expect(reviewerEmailField).toHaveValue("local@host.com");
-            expect(starsField).toHaveValue("5");
+            expect(starsField).toHaveValue(5);
             expect(dateReviewedField).toHaveValue("2022-02-12T12:01");
             expect(commentsField).toHaveValue("This is a great item");
             expect(submitButton).toBeInTheDocument();
@@ -153,9 +153,9 @@ describe("MenuItemReviewEditPage tests", () => {
             const submitButton = screen.getByTestId("MenuItemReviewForm-submit");
 
             expect(idField).toHaveValue("17");
-            expect(itemIdField).toHaveValue("1001");
+            expect(itemIdField).toHaveValue(1001);
             expect(reviewerEmailField).toHaveValue("local@host.com");
-            expect(starsField).toHaveValue("5");
+            expect(starsField).toHaveValue(5);
             expect(dateReviewedField).toHaveValue("2022-02-12T12:01");
             expect(commentsField).toHaveValue("This is a great item");
             expect(submitButton).toBeInTheDocument();

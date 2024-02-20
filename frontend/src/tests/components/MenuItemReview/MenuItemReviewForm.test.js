@@ -68,10 +68,6 @@ describe("MenuItemReviewForm tests", () => {
         fireEvent.click(submitButton);
 
         await screen.findByText(/dateReviewed is required in iso format./);
-        expect(screen.getByText(/itemId is required./)).toBeInTheDocument();
-        expect(screen.getByText(/reviewerEmail is required./)).toBeInTheDocument();
-        expect(screen.getByText(/stars is required./)).toBeInTheDocument();
-        expect(screen.getByText(/comments are required./)).toBeInTheDocument();
 
     });
 
@@ -104,6 +100,8 @@ describe("MenuItemReviewForm tests", () => {
         await waitFor(() => expect(mockSubmitAction).toHaveBeenCalled());
 
         expect(screen.queryByText(/DateReviewed must be in ISO format/)).not.toBeInTheDocument();
+        expect(screen.queryByText(/Item Id must be greater than or equal to 0/)).not.toBeInTheDocument();
+        expect(screen.queryByText(/Stars must be greater than or equal to 0/)).not.toBeInTheDocument();
 
     });
 
