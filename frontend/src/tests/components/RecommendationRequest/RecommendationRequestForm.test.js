@@ -75,6 +75,7 @@ describe("RecommendationRequestForm tests", () => {
         expect(screen.getByText(/Explanation is required./)).toBeInTheDocument();
         expect(screen.getByText(/dateRequested is required./)).toBeInTheDocument();
         expect(screen.getByText(/dateNeeded is required./)).toBeInTheDocument();
+        expect(screen.getByText(/done is required./)).toBeInTheDocument();
 
     });
 
@@ -95,6 +96,7 @@ describe("RecommendationRequestForm tests", () => {
         const explanationField = screen.getByTestId("RecommendationRequestForm-explanation");
         const dateRequestedField = screen.getByTestId("RecommendationRequestForm-dateRequested");
         const dateNeededField = screen.getByTestId("RecommendationRequestForm-dateNeeded");
+        const doneField = screen.getByTestId("RecommendationRequestForm-done");
         const submitButton = screen.getByTestId("RecommendationRequestForm-submit");
 
         fireEvent.change(requesterEmailField, { target: { value: 'abc@gmail.com' } });
@@ -102,6 +104,7 @@ describe("RecommendationRequestForm tests", () => {
         fireEvent.change(explanationField, { target: { value: 'it would be so nice' } });
         fireEvent.change(dateRequestedField, { target: { value: '2022-01-02T12:00' } });
         fireEvent.change(dateNeededField, { target: { value: '20223-01-02T12:00' } });
+        fireEvent.change(doneField, { target: { value: 'true' } });
         fireEvent.click(submitButton);
 
         await waitFor(() => expect(mockSubmitAction).toHaveBeenCalled());
@@ -111,7 +114,7 @@ describe("RecommendationRequestForm tests", () => {
         expect(screen.queryByText(/Explanation is required./)).not.toBeInTheDocument();
         expect(screen.queryByText(/dateRequested is required./)).not.toBeInTheDocument();
         expect(screen.queryByText(/dateNeeded is required./)).not.toBeInTheDocument();
-
+        expect(screen.queryByText(/done is required./)).not.toBeInTheDocument();
     });
 
 
